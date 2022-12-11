@@ -1,5 +1,5 @@
 # Hello! 👋
-[<img src="pic/bio.jpeg" width="250" align="right"/>](http://www.cs.bilkent.edu.tr/~adundar/teaching/team/bahri.jpeg)  I am **Bahri Batuhan Bilecen**, a junior research engineer at [ASELSAN Research](https://www.aselsan.com.tr/en), MSc student at [Bilkent University](https://w3.bilkent.edu.tr/bilkent/)'s computer engineering department, and electrical-electronics engineering graduate at [Middle East Technical University](https://www.metu.edu.tr/). 
+[<img src="pic/bio.jpeg" width="250" align="right"/>]()  I am **Bahri Batuhan Bilecen**, a junior research engineer at [ASELSAN Research](https://www.aselsan.com.tr/en), MSc student at [Bilkent University](https://w3.bilkent.edu.tr/bilkent/)'s computer engineering department, and electrical-electronics engineering graduate at [Middle East Technical University](https://www.metu.edu.tr/). 
 
 ### Research 📚
 
@@ -10,4 +10,10 @@ My MSc is focused on image enhancement with deep generative networks, under the 
 
 ### Publications 📑
 
+|       |  |
+| ----------- | ----------- |
+|  [<img src="pic/XABA_sq.jpg" width="200"/>]()    | *Efficient Multi-Purpose Cross-Attention Based Image Alignment Block for Edge Devices* <br/> **Bahri Batuhan Bilecen**, Alparslan Fişne, Mustafa Ayazoğlu <br/> IEEE/CVF CVPR 2022 Embedded Vision Workshop <br/> [Paper](https://openaccess.thecvf.com/content/CVPR2022W/EVW/papers/Bilecen_Efficient_Multi-Purpose_Cross-Attention_Based_Image_Alignment_Block_for_Edge_Devices_CVPRW_2022_paper.pdf) [Presentation](https://youtu.be/gOQ_q7-sCNM)   |
+| [<img src="pic/XCAT_sq.JPG" width="200"/>]()   | *XCAT - Lightweight Quantized Single Image Super-Resolution using Heterogeneous Group Convolutions and Cross Concatenation* <br/> Mustafa Ayazoğlu, **Bahri Batuhan Bilecen** <br/> ECCV 2022 Advances in Image Manipulation (AIM) Workshop <br/> [Paper](https://arxiv.org/pdf/2208.14655.pdf) [Presentation](https://youtu.be/5IEqenmxEpg)     |
+
 ### Contact ✉️
+
