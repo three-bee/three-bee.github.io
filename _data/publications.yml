@@ -1,7 +1,7 @@
 main:
   - title: Learn What to Solve Yourself&#58; Blind Image Super-Resolution Network that Designs and Solves Adaptive Optimization
     authors: Mustafa Ayazoglu and <strong>Bahri Batuhan Bilecen</strong> 
-    image: ./assets/img/blindsr.png
+    image: ./assets/img/blindSR.png
     notes: in submission
 
   - title: Diverse Inpainting and Editing with GAN Inversion
