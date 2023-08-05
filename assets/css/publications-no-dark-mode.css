@@ -72,4 +72,4 @@ blockquote { background: var(--global-bg-color); border-left: 2px solid var(--gl
 
 .publications ol.bibliography li div.abstract.hidden.open { border-color: var(--global-text-color); }
 
-.publications ol.bibliography li .teaser { height: 133px; width: 350px; margin-top: 5px; margin-left: 5px; margin-bottom: 5px; object-fit: cover; }
+.publications ol.bibliography li .teaser { height: 120px; width: 160px; margin-top: 5px; margin-left: 5px; margin-bottom: 5px; object-fit:contain; margin-right: 60px; }
