@@ -1,0 +1,40 @@
+main:
+  - title: Learn What to Solve Yourself&#58; Blind Image Super-Resolution Network that Designs and Solves Adaptive Optimization
+    authors: Mustafa Ayazoglu and <strong>Bahri Batuhan Bilecen</strong> 
+    image: ./assets/img/blindsr.png
+    notes: in submission
+
+  - title: Diverse Inpainting and Editing with GAN Inversion
+    authors: Ahmet Burak Yildirim, Hamza Pehlivan, <strong>Bahri Batuhan Bilecen</strong>, Aysegul Dundar 
+    conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2023.
+    arxiv: https://arxiv.org/abs/2307.15033
+    image: ./assets/img/inversion-inpainting.jpg
+
+  - title: Towards Clip-Free Quantized Super-Resolution Networks&#58; How to Tame Representative Images
+    authors: Alperen Kalay, <strong>Bahri Batuhan Bilecen</strong>, Mustafa Ayazoglu
+    conference:  British Machine Vision Conference <strong>(BMVC)</strong>, 2023.
+    arxiv: 
+    image: ./assets/img/repr_image_SR.png
+
+  - title: Bicubic++ - Designing an Industry-Grade Super-Resolution Network
+    authors: <strong>Bahri Batuhan Bilecen</strong> and Mustafa Ayazoglu 
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, NTIRE Workshop, 2023.
+    arxiv: https://arxiv.org/abs/2305.02126
+    openaccess: https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/html/Bilecen_Bicubic_Slim_Slimmer_Slimmest_-_Designing_an_Industry-Grade_Super-Resolution_Network_CVPRW_2023_paper.html
+    code: https://github.com/aselsan-research-imaging-team/bicubic-plusplus
+    notes: Real-Time SR Track 2 Challange Winner
+    image: ./assets/img/bicubicplusplus.png
+
+  - title: XCAT - Lightweight Quantized Single Image Super-Resolution using Heterogeneous Group Convolutions and Cross Concatenation
+    authors: Mustafa Ayazoglu and <strong>Bahri Batuhan Bilecen</strong>
+    conference: European Conference on Computer Vision <strong>(ECCV)</strong>, Advances in Image Manipulation (AIM) Workshop, 2022.
+    arxiv: https://arxiv.org/abs/2208.14655
+    openaccess: https://link.springer.com/chapter/10.1007/978-3-031-25063-7_29
+    image: ./assets/img/xcat.png
+
+  - title: Efficient Multi-Purpose Cross Attention-Based Image Alignment Block for Edge Devices
+    authors: <strong>Bahri Batuhan Bilecen</strong>, Alparslan Fisne, Mustafa Ayazoglu
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, Embedded Vision Workshop, 2022.
+    arxiv: https://arxiv.org/abs/2206.00291
+    openaccess: https://openaccess.thecvf.com/content/CVPR2022W/EVW/html/Bilecen_Efficient_Multi-Purpose_Cross-Attention_Based_Image_Alignment_Block_for_Edge_Devices_CVPRW_2022_paper.html
+    image: ./assets/img/alignment.png
