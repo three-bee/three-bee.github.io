@@ -13,7 +13,7 @@ main:
   - title: Towards Clip-Free Quantized Super-Resolution Networks&#58; How to Tame Representative Images
     authors: Alperen Kalay, <strong>Bahri Batuhan Bilecen</strong>, Mustafa Ayazoglu
     conference:  British Machine Vision Conference <strong>(BMVC)</strong>, 2023.
-    arxiv: 
+    arxiv: https://arxiv.org/abs/2308.11365
     image: ./assets/img/repr_image_SR.png
 
   - title: Bicubic++ - Designing an Industry-Grade Super-Resolution Network
