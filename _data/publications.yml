@@ -8,6 +8,7 @@ main:
     authors: Ahmet Burak Yildirim, Hamza Pehlivan, <strong>Bahri Batuhan Bilecen</strong>, Aysegul Dundar 
     conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2023.
     arxiv: https://arxiv.org/abs/2307.15033
+    page: http://divinversion.abyildirim.com
     image: ./assets/img/inversion-inpainting.jpg
 
   - title: Towards Clip-Free Quantized Super-Resolution Networks&#58; How to Tame Representative Images
