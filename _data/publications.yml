@@ -1,8 +1,9 @@
 main:
-  - title: Learn What to Solve Yourself&#58; Blind Image Super-Resolution Network that Designs and Solves Adaptive Optimization
-    arxiv: https://three-bee.github.io/triplane_edit
-    authors: Mustafa Ayazoglu and <strong>Bahri Batuhan Bilecen</strong> 
-    image: ./assets/img/blindSR.png
+  - title: Reference-Based 3D-Aware Image Editing with Triplane
+    page: https://three-bee.github.io/triplane_edit
+    code: https://github.com/three-bee/triplane_edit
+    authors: <strong>Bahri Batuhan Bilecen</strong>, Yigit Yalin, Ning Yu, Aysegul Dundar
+    image: ./assets/img/triplaneEditing.png
     notes: in submission
 
   - title: Diverse Inpainting and Editing with GAN Inversion
