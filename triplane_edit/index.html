@@ -9,7 +9,7 @@
   <meta property="og:description" content="Reference-Based 3D-Aware Image Editing with Triplane"/>
   <meta property="og:url" content="three-bee.github.io/triplane_edit"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+<!--   <meta property="og:image" content="static/image/your_banner_image.png" /> -->
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
@@ -75,7 +75,7 @@
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -86,7 +86,7 @@
 
                     <!-- Supplementary PDF link -->
                     <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      <a href="https://arxiv.org" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -97,7 +97,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/three-bee/triplane_edit" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -108,7 +108,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -135,7 +135,7 @@
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        Our approach excels in reference-based edits, faithfully reproducing the copied reference parts. Leveraging 3D-aware triplanes, our edits are versatile, allowing for rendering from various viewpoints. Additionally, we demonstrate successful edits on animal faces and even replicate references from cartoon portrait faces.
       </h2>
     </div>
   </div>
@@ -150,7 +150,21 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Generative Adversarial Networks (GANs) have emerged as powerful tools for 
+            high-quality image generation and real image editing by manipulating their interpretable latent
+            spaces. Recent advancements in GANs include the development of 3D-aware models, such as
+            EG3D, characterized by efficient triplane-based architectures enabling the reconstruction of 3D
+            geometry from single images. However, scant attention has been devoted to providing an
+            integrated framework for high-quality reference-based 3D-aware image editing within this
+            domain. This study addresses this gap by exploring and demonstrating the effectiveness of
+            EG3D's triplane space for achieving advanced reference-based edits, presenting a unique
+            perspective on 3D-aware image editing through our novel pipeline. Our approach integrates the
+            encoding of triplane features (1), spatial disentanglement, and automatic localization of features
+            in the triplane domain (2) and fusion learning for desired image editing (3). Moreover, our
+            the framework demonstrates versatility across domains, extending its effectiveness to animal face
+            edits and partial stylization of cartoon portraits. The method shows significant qualitative and
+            quantitative improvements, as well as in the relevant 3D-aware latent editing and 2D
+            reference-based editing methods.
           </p>
         </div>
       </div>
