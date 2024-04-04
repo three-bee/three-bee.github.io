@@ -1,5 +1,6 @@
 main:
   - title: Learn What to Solve Yourself&#58; Blind Image Super-Resolution Network that Designs and Solves Adaptive Optimization
+    arxiv: https://three-bee.github.io/triplane_edit
     authors: Mustafa Ayazoglu and <strong>Bahri Batuhan Bilecen</strong> 
     image: ./assets/img/blindSR.png
     notes: in submission
