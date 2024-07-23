@@ -124,7 +124,6 @@
   </div>
 </section>
 
-
 <!-- Teaser video -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
@@ -146,25 +145,22 @@
 <!-- End teaser video -->
 
 <style>
-  .video-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px; /* Space between the videos */
-    justify-items: center;
-    align-items: center;
-  }
-  .video-container video {
-    width: 100%;
-    max-width: 700px;
-  }
   .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .video-container {
     display: flex;
     justify-content: center;
+    gap: 20px; /* Space between the videos */
+    flex-wrap: wrap; /* Ensure videos wrap on smaller screens */
   }
-  .hero-body {
-    width: 100%;
+  .video-container video {
+    flex: 1 1 45%; /* Ensure videos take up to 45% of the container width */
+    max-width: 45%;
   }
 </style>
+
 
 
   
