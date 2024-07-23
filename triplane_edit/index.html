@@ -130,10 +130,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="video-container">
-        <video poster="" id="tree1" autoplay controls muted loop height="100%">
+        <video poster="" id="tree1" autoplay controls muted loop>
           <source src="static/videos/teaser_vid.mp4" type="video/mp4">
         </video>
-        <video poster="" id="tree2" autoplay controls muted loop height="100%">
+        <video poster="" id="tree2" autoplay controls muted loop>
           <source src="static/videos/tryon_video.mp4" type="video/mp4">
         </video>
       </div>
@@ -144,15 +144,20 @@
   </div>
 </section>
 <!-- End teaser video -->
+
 <style>
   .video-container {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 10px; /* Space between the videos */
   }
   .video-container video {
-    flex: 1;
+    max-width: 48%; /* Ensures videos fit within the container */
+    flex: 1 1 auto;
   }
 </style>
+
   
 <!-- Paper abstract -->
 <section class="section hero is-light">
