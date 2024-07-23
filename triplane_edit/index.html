@@ -125,7 +125,7 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser video -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -147,16 +147,25 @@
 
 <style>
   .video-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px; /* Space between the videos */
+    justify-items: center;
+    align-items: center;
   }
   .video-container video {
-    max-width: 48%; /* Ensures videos fit within the container */
-    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-body {
+    width: 100%;
   }
 </style>
+
 
   
 <!-- Paper abstract -->
