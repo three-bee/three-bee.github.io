@@ -128,27 +128,30 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+        <h2 class="subtitle has-text-centered">
+Our approach excels in reference-based edits, faithfully reproducing the copied reference parts with a <b>single</b> source and reference image. Leveraging 3D-aware triplanes, our edits are versatile and 3D consistent, allowing for rendering from various viewpoints. We show results for 360-degree human and animal faces, human heads, cross-domain edits with cartoon portraits, and virtual try-ons.        </h2>
+        
       <div class="video-container">
         <div class="video-text">Human face edits on EG3D</div>
         <video poster="" id="tree1" autoplay controls muted loop>
           <source src="static/videos/teaser_vid.mp4" type="video/mp4">
         </video>
       </div>
+      
       <div class="video-container">
         <div class="video-text">Full 360-degree head edits on PanoHead</div>
         <video poster="" id="tree2" autoplay controls muted loop>
           <source src="static/videos/panohead.mp4" type="video/mp4">
         </video>
       </div>
+      
       <div class="video-container">
         <div class="video-text">Try-on edits on AG3D</div>
         <video poster="" id="tree3" autoplay controls muted loop>
           <source src="static/videos/tryon_video.mp4" type="video/mp4">
         </video>
       </div>
-      <h2 class="subtitle has-text-centered">
-        Our approach excels in reference-based edits, faithfully reproducing the copied reference parts with a <b>single source and reference image</b>. Leveraging 3D-aware triplanes, our edits are versatile, 3D consistent allowing for rendering from various viewpoints. We demonstrate results on various edits for 360-degree human head, animal face, cross-domain edits with cartoon portraits, and virtual try-on.
-      </h2>
+      
     </div>
   </div>
 </section>
@@ -182,21 +185,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Generative Adversarial Networks (GANs) have emerged as powerful tools for 
-            high-quality image generation and real image editing by manipulating their interpretable latent
-            spaces. Recent advancements in GANs include the development of 3D-aware models, such as
-            EG3D, characterized by efficient triplane-based architectures enabling the reconstruction of 3D
-            geometry from single images. However, scant attention has been devoted to providing an
-            integrated framework for high-quality reference-based 3D-aware image editing within this
-            domain. This study addresses this gap by exploring and demonstrating the effectiveness of
-            EG3D's triplane space for achieving advanced reference-based edits, presenting a unique
-            perspective on 3D-aware image editing through our novel pipeline. Our approach integrates the
-            encoding of triplane features (1), spatial disentanglement, and automatic localization of features
-            in the triplane domain (2) and fusion learning for desired image editing (3). Moreover, our
-            the framework demonstrates versatility across domains, extending its effectiveness to animal face
-            edits and partial stylization of cartoon portraits. The method shows significant qualitative and
-            quantitative improvements, as well as in the relevant 3D-aware latent editing and 2D
-            reference-based editing methods.
+            Generative Adversarial Networks (GANs) have emerged as powerful tools for high-quality image generation and real image editing by manipulating their latent spaces. Recent advancements in GANs include 3D-aware models such as EG3D, which feature efficient triplane-based architectures capable of reconstructing 3D geometry from single images. However, limited attention has been given to providing an integrated framework for 3D-aware, high-quality, reference-based image editing. This study addresses this gap by exploring and demonstrating the effectiveness of the triplane space for advanced reference-based edits. Our novel approach integrates encoding, automatic localization, spatial disentanglement of triplane features, and fusion learning to achieve the desired edits. Additionally, our framework demonstrates versatility and robustness across various domains, extending its effectiveness to animal face edits, partially stylized edits like cartoon faces, full-body clothing edits, and 360-degree head edits. Our method shows state-of-the-art performance over relevant latent direction, text, and image-guided 2D and 3D-aware diffusion and GAN methods, both qualitatively and quantitatively.
           </p>
         </div>
       </div>
@@ -371,8 +360,6 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
         </div>
