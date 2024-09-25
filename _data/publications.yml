@@ -4,7 +4,7 @@ main:
     code: https://github.com/berkegokmen1/dual-enc-3d-gan-inversion
     authors: <strong>Bahri Batuhan Bilecen</strong>*, Ahmet Berke Gokmen*, Aysegul Dundar
     image: ./assets/img/dual_encoder.png
-    notes: in submission
+    conference: Conference on Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2024.
     
   - title: Bayesian Conditioned Diffusion Models for Inverse Problems
     arxiv: https://arxiv.org/abs/2406.09768
