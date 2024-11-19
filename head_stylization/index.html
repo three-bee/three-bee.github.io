@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Identity Preserving 3D Head Stylization with Multiview Score Distillation">
+  <meta property="og:title" content="Identity Preserving 3D Head Stylization with Multiview Score Distillation"/>
+  <meta property="og:description" content="Identity Preserving 3D Head Stylization with Multiview Score Distillation"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="keywords" content="triplane, GAN, score distillation, stylization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Identity Preserving 3D Head Stylization with Multiview Score Distillation</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"> 
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span style="background: linear-gradient(to right, rgb(75, 100, 255), rgb(255, 123, 0)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Identity Preserving 3D Head Stylization with Multiview Score Distillation
+            </span></h1>
+            <div class="is-size-5 publication-authors">
+              <span class="supp-block">Supplementary Material<br></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      <h2 class="subtitle has-text-centered">
+        Our method effectively balances stylization and identity preservation, whereas other approaches often struggle to achieve high-quality stylization, lack accurate identity retention, and suffer from generating identical faces for different inputs.
+      </h2>
+      
+          <p class="centered-text">
+          You may refresh the page to synchronize all visible videos.
+          </p>
+
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <p class="video-title">Input</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1422_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Joker</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1422_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Pixar</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1422_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Zombie</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1422_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Statue</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1422_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Werewolf</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1422_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Sketch</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1422_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      
+    <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1254_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1254_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1254_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1254_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1254_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1254_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1254_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1196_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1196_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1196_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1196_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1196_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1196_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1196_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_576_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_576_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_576_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_576_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_576_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_576_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/5_576_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <style>
+    .video-container {
+      position: relative;
+      display: inline-block;
+    }
+    .video-text {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 6 equal-width columns */
+  gap: 10px; /* Space between videos */
+  justify-items: center; /* Center each item horizontally in the grid */
+  align-items: center; /* Align items to start of the container */
+}
+
+.video-wrapper {
+  display: flex;
+  flex-direction: column; /* Arrange title and video vertically */
+  align-items: center; /* Center content horizontally */
+  width: 100%;
+}
+
+.video-title {
+  font-size: 1rem;
+  margin-bottom: 10px; /* Adds space between the text and video */
+  color: #333; /* Adjust text color if needed */
+  text-align: center; /* Center align the title text */
+}
+.centered-text {
+  text-align: center; /* Center align the title text */
+}
+
+video {
+  width: 100%; /* Ensures videos scale to fit the wrapper */
+  height: auto; /* Maintain aspect ratio of video */
+  object-fit: cover; /* Makes sure videos fill the container without distortion */
+}
+
+.video-grid-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Space between rows */
+}
+
+.vertical-text {
+  writing-mode: vertical-rl; /* Rotates the text vertically */
+  transform: rotate(180deg); /* Adjust to make text read from top to bottom */
+  text-align: center;
+  font-size: 0.9rem;
+  margin-right: 10px; /* Space between the text and the grid */
+  color: #333; /* Adjust text color as needed */
+}
+
+
+  </style>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+
+
+          <div class="content has-text-justified">
+            <p>
+3D head stylization transforms realistic facial features into artistic representations, enhancing user engagement across applications such as gaming and virtual reality. While 3D-aware generators have made significant advancements, many 3D stylization methods primarily provide near-frontal views and struggle to preserve the unique identities of original subjects, often resulting in outputs that lack diversity and individuality. This paper addresses these challenges by leveraging the PanoHead model, which synthesizes images from a comprehensive 360-degree perspective. We propose a novel framework that employs negative log-likelihood distillation (LD) to enhance identity preservation and improve stylization quality. By integrating multi-view grid score and mirror gradients within the 3D GAN architecture and introducing a score rank weighing technique, our approach achieves substantial qualitative and quantitative improvements. Our findings not only advance the state of 3D head stylization but also provide valuable insights into effective distillation processes between diffusion models and GANs, focusing on the critical issue of identity preservation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3">Qualitative Results and Comparisons</h2>
+          <p class="centered-text">
+          You may refresh the page to synchronize all visible videos.
+          </p>
+
+          <div class="content has-text-justified">
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>Ours</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <p class="video-title">Input</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/0_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Joker</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_367_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Pixar</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_367_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Zombie</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_367_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Statue</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_367_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Werewolf</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_367_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Sketch</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>StyleCLIP</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_367_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_367_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_367_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_367_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_367_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>StyleGAN-NADA</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_367_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_367_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_367_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_367_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_367_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>StyleGAN-Fusion</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_367_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_367_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_367_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_367_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_367_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+      
+      
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>DiffusionGAN3D</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_367_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_367_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_367_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_367_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_367_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_367_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+      
+      
+          <p class="centered-text">
+          You may refresh the page to synchronize all visible videos.
+          </p>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>Ours</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <p class="video-title">Input</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Joker</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1165_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Pixar</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1165_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Zombie</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1165_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Statue</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1165_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Werewolf</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1165_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <p class="video-title">Sketch</p>
+          <video autoplay muted loop>
+            <source src="./static/videos/5_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>StyleCLIP</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_1165_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_1165_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_1165_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_1165_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_1165_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/1_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>StyleGAN-NADA</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_1165_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_1165_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_1165_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_1165_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_1165_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/2_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>StyleGAN-Fusion</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_1165_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_1165_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_1165_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_1165_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_1165_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/3_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+      
+      
+<div class="video-grid-wrapper">
+        <div class="vertical-text">
+          <p>DiffusionGAN3D</p>
+        </div>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/0_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_1165_joker.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_1165_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_1165_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_1165_statue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_1165_werewolf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+            <source src="./static/videos/4_1165_sketch.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <div class="content has-text-justified">
+            <div class="container">
+              <img src="./static/images/joker_2_final.jpg"/>
+              <p class="centered-text">
+<b>Joker</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
+              </p>
+              <br />
+              
+                          <div class="container">
+              <img src="./static/images/sketch_2_final.jpg"/>
+              <p class="centered-text">
+<b>Sketch</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
+              </p>
+              <br />
+
+                          <div class="container">
+              <img src="./static/images/pixar_2_final.jpg"/>
+              <p class="centered-text">
+<b>Pixar</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
+              </p>
+              <br />
+              
+                          <div class="container">
+              <img src="./static/images/statue_2_final.jpg"/>
+              <p class="centered-text">
+<b>Statue</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
+              </p>
+              <br />
+              
+                          <div class="container">
+              <img src="./static/images/werewolf_2_final.jpg"/>
+              <p class="centered-text">
+<b>Werewolf</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
+              </p>
+              <br />
+              
+                          <div class="container">
+              <img src="./static/images/zombie_2_final.jpg"/>
+              <p class="centered-text">
+<b>Zombie</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
+              </p>
+              <br />
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+     <h2 class="title is-3">Supplementary PDF</h2>
+    <iframe src="5767_supplementary.pdf" width="100%" height="600" style="border: none;"></iframe>
+  </div>
+  </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
