@@ -1,4 +1,11 @@
 main:
+  - title: Identity Preserving 3D Head Stylization with Multiview Score Distillation
+    page: https://three-bee.github.io/head_stylization
+    code: https://github.com/three-bee/3d_mv_head_stylization
+    authors: <strong>Bahri Batuhan Bilecen</strong>, Ahmet Berke Gokmen, Furkan Guzelant, Aysegul Dundar
+    image: ./assets/img/head_stylization.png
+    notes: in submission
+    
   - title: Dual Encoder GAN Inversion for High-Fidelity 3D Head Reconstruction from Single Images
     page: https://berkegokmen1.github.io/dual-enc-3d-gan-inv/
     code: https://github.com/berkegokmen1/dual-enc-3d-gan-inversion
