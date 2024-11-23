@@ -2,7 +2,7 @@ main:
   - title: Identity Preserving 3D Head Stylization with Multiview Score Distillation
     arxiv: https://arxiv.org/abs/2411.13536
     page: https://three-bee.github.io/head_stylization
-    code: https://github.com/three-bee/3d_mv_head_stylization
+    code: https://github.com/three-bee/3d_head_stylization
     authors: <strong>Bahri Batuhan Bilecen</strong>, Ahmet Berke Gokmen, Furkan Guzelant, Aysegul Dundar
     image: ./assets/img/head_stylization.png
     notes: in submission
