@@ -7,6 +7,13 @@ main:
     image: ./assets/img/head_stylization.png
     notes: in submission
     
+  - title: Reference-Based 3D-Aware Image Editing with Triplane
+    page: https://three-bee.github.io/triplane_edit
+    code: https://github.com/three-bee/triplane_edit
+    authors: <strong>Bahri Batuhan Bilecen</strong>, Yigit Yalin, Ning Yu, Aysegul Dundar
+    image: ./assets/img/triplaneEditing.png
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025.
+
   - title: Dual Encoder GAN Inversion for High-Fidelity 3D Head Reconstruction from Single Images
     arxiv: https://arxiv.org/abs/2409.20530
     page: https://berkegokmen1.github.io/dual-enc-3d-gan-inv/
@@ -21,13 +28,6 @@ main:
     image: ./assets/img/BCDM_disc.png
     notes: in submission
     
-  - title: Reference-Based 3D-Aware Image Editing with Triplane
-    page: https://three-bee.github.io/triplane_edit
-    code: https://github.com/three-bee/triplane_edit
-    authors: <strong>Bahri Batuhan Bilecen</strong>, Yigit Yalin, Ning Yu, Aysegul Dundar
-    image: ./assets/img/triplaneEditing.png
-    notes: in submission
-
   - title: Diverse Inpainting and Editing with GAN Inversion
     authors: Ahmet Burak Yildirim, Hamza Pehlivan, <strong>Bahri Batuhan Bilecen</strong>, Aysegul Dundar 
     conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2023.
