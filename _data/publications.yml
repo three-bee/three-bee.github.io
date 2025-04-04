@@ -13,6 +13,7 @@ main:
     authors: <strong>Bahri Batuhan Bilecen</strong>, Yigit Yalin, Ning Yu, Aysegul Dundar
     image: ./assets/img/triplaneEditing.png
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025.
+    notes: Highlight
 
   - title: Dual Encoder GAN Inversion for High-Fidelity 3D Head Reconstruction from Single Images
     arxiv: https://arxiv.org/abs/2409.20530
