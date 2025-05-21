@@ -20,7 +20,7 @@ main:
     code: https://github.com/three-bee/triplane_edit
     authors: <strong>Bahri Batuhan Bilecen</strong>, Yigit Yalin, Ning Yu, Aysegul Dundar
     image: ./assets/img/triplaneEditing.png
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong(CVPR)</strong>, 2025.
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
     notes: Highlight
 
   - title: Dual Encoder GAN Inversion for High-Fidelity 3D Head Reconstruction from Single Images
