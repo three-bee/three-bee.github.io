@@ -1,9 +1,9 @@
 main:
-  - title: RoPECraft: Training-Free Motion Transfer with Trajectory-Guided Optimization on Diffusion Transformers
+  - title: RoPECraft - Training-Free Motion Transfer with Trajectory-Guided Optimization on Diffusion Transformers
     arxiv: https://arxiv.org/abs/2505.13344
     page: https://berkegokmen1.github.io/RoPECraft
     code: https://github.com/berkegokmen1/RoPECraft
-    authors: Ahmet Berke Gokmen*, Yigit Ekin*, <strong>Bahri Batuhan Bilecen*</strong>, Aysegul Dundar
+    authors: Ahmet Berke Gokmen*, Yigit Ekin*, <strong>Bahri Batuhan Bilecen*</strong>, Aysegul Dundar (* are equal contribution)
     image: ./assets/img/ropecraft.png
     notes: in submission
     
@@ -27,7 +27,7 @@ main:
     arxiv: https://arxiv.org/abs/2409.20530
     page: https://berkegokmen1.github.io/dual-enc-3d-gan-inv/
     code: https://github.com/berkegokmen1/dual-enc-3d-gan-inversion
-    authors: <strong>Bahri Batuhan Bilecen</strong>*, Ahmet Berke Gokmen*, Aysegul Dundar
+    authors: <strong>Bahri Batuhan Bilecen</strong>*, Ahmet Berke Gokmen*, Aysegul Dundar (* are equal contribution)
     image: ./assets/img/dual_encoder.png
     conference: Conference on Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2024.
     
