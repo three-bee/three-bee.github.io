@@ -13,7 +13,7 @@ main:
     code: https://github.com/three-bee/3d_head_stylization
     authors: <strong>Bahri Batuhan Bilecen</strong>, Ahmet Berke Gokmen, Furkan Guzelant, Aysegul Dundar
     image: ./assets/img/head_stylization.png
-    notes: in submission
+    conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2025.
     
   - title: Reference-Based 3D-Aware Image Editing with Triplane
     page: https://three-bee.github.io/triplane_edit
