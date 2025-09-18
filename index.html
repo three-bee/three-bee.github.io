@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bahri Batuhan Bilecen — Homepage</title>
+  <meta name="description" content="Personal homepage for Bahri Batuhan Bilecen: research, publications, contact." />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: #11131a;
+      --soft: #1a1d24;
+      --text: #e8e8ea;
+      --muted: #a8acb3;
+      --accent: #6ee7b7;
+      --link: #8ab4ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 18px;
+
+      --c-neurips: #00206c;
+      --c-icml: #00206c;
+      --c-cvpr: #00206c;
+      --c-iccv: #00206c;
+      --c-eccv: #00206c;
+      --c-bmvc: #00206c;
+      --c-arxiv: #00206c;
+      --c-default: #00206c;
+
+      --flag-oral: #e03636;
+      --flag-spotlight: #e03636;
+      --flag-challenge_winner: #e03636;
+      --flag-workshop: #243955;
+    }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: radial-gradient(1200px 600px at 80% -10%, #14202e 0%, transparent 60%),
+                  radial-gradient(900px 500px at -10% 10%, #1d1527 0%, transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px; }
+
+    .hero { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: start; }
+    .avatar { width: 140px; height: 140px; border-radius: 50%; background: var(--soft); box-shadow: var(--shadow); object-fit: cover; }
+    h1 { font-size: 36px; margin: 0 0 8px; letter-spacing: -0.02em; }
+    .subtitle { color: var(--muted); margin-top: 4px; }
+
+    .links-icons { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 14px; font-size: 20px; }
+    .links-icons a { color: var(--text); transition: color 0.2s; }
+    .links-icons a:hover { color: var(--accent); }
+
+    .summary { margin-top: 14px; font-size: 15px; color: var(--muted); }
+
+    .section { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)), var(--card); border: 1px solid #1f2430; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+
+    #pubs { padding-left: 0; list-style: none; }
+    .pub { display: grid; grid-template-columns: 260px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid #1f2430; align-items: start; }
+    .pub:last-child { border-bottom: none; }
+    .thumb { width: 220px; height: 160px; border-radius: 12px; overflow: hidden; background: #0c0f15; border: 1px solid #232838; box-shadow: var(--shadow); }
+    .thumb video, .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .pub-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .pub-title { font-weight: 700; }
+
+    .badge { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; color: #0b0c10; background: var(--c-default); border: 1px solid rgba(255, 255, 255, 0.1); }
+    [data-venue*="chi"] .badge { background: var(--c-chi);  color: #ffffff; }
+    [data-venue*="neurips"] .badge { background: var(--c-neurips);  color: #ffffff; }
+    [data-venue*="icml"] .badge { background: var(--c-icml);  color: #ffffff; }
+    [data-venue*="cvpr"] .badge { background: var(--c-cvpr);  color: #ffffff; }
+    [data-venue*="iccv"] .badge { background: var(--c-iccv); color: #ffffff;}
+    [data-venue*="eccv"] .badge { background: var(--c-eccv); color: #ffffff;}
+    [data-venue*="bmvc"] .badge { background: var(--c-bmvc); color: #ffffff;}
+    [data-venue*="kdd"] .badge { background: var(--c-kdd);  color: #ffffff; }
+    [data-venue*="arxiv"] .badge { background: var(--c-arxiv);  color: #ffffff; }
+
+    .flags { display: inline-flex; gap: 6px; align-items: center; }
+    .flag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); display: inline-block; }
+    .flag.oral { background: var(--flag-oral); color: #ffffff; }
+    .flag.spotlight { background: var(--flag-spotlight); color: #ffffff; }
+    .flag.challenge_winner { background: var(--flag-challenge_winner); color: #ffffff; }
+    .flag.workshop { background: var(--flag-workshop); color: #ffffff; }
+
+    .pub-authors { color: var(--muted); margin-top: 2px; }
+    .pub-venue { color: var(--muted); font-style: italic; margin-top: 2px; }
+    .pub-links a { margin-right: 12px; }
+    
+
+    footer { text-align: center; color: var(--muted); font-size: 14px; margin: 26px 0 60px; }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .avatar { margin: 0 auto; }
+      .pub { grid-template-columns: 1fr; }
+      .thumb { width: 100%; height: 180px; }
+    }
+  .pub-authors .me { color: #a5b4fc; font-weight: 600; } /* pastel indigo */
+</style>
+</head>
+<body>
+  <main class="container">
+    <section class="section">
+      <div class="hero">
+        <img class="avatar" src="media/avatar.jpg" alt="Portrait of Bahri Batuhan Bilecen" />
+        <div>
+          <h1>Bahri Batuhan Bilecen</h1>
+          <div class="subtitle">PhD student at ETH Zürich</div>
+          <div class="links-icons">
+            <a href="mailto:bbilecen@ethz.ch" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://scholar.google.com/citations?user=4GUU0H4AAAAJ&hl=tr" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/three-bee" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/bbatuhan/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="./assets/files/curriculum_vitae.pdf" target="_blank" title="CV"><i class="fas fa-file-pdf"></i></a>
+          </div>
+          <div class="summary">
+            <p>
+              Hi there 👋 I'm a PhD student at ETH Zürich and Max Planck Institute, under the supervision of 
+              <a href="https://inf.ethz.ch/people/person-detail.MjYyNzgw.TGlzdC8zMDQsLTg3NDc3NjI0MQ==.html" target="_blank">Prof. Siyu Tang</a>, 
+              <a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele" target="_blank">Prof. Bernt Schiele</a>, 
+              and <a href="https://janericlenssen.github.io" target="_blank">Dr. Jan Eric Lenssen</a>, with <a href="https://learning-systems.org" target="_blank">CLS</a> fellowship.
+              <p>I focus on generative modeling, representation learning, and video-language-action models.</p>
+            </p>
+            <p>
+              I got my CS MSc at <a href="https://w3.bilkent.edu.tr/bilkent/" target="_blank">Bilkent University</a> in 2025, 
+              and EEE BSc at <a href="https://www.metu.edu.tr/" target="_blank">Middle East Technical University (METU)</a> in 2022. 
+              I also worked as a full-time research engineer at <a href="https://www.aselsan.com/en" target="_blank">Aselsan Inc.</a> in 2021-2025.
+              My MSc thesis focused on 3D reconstruction from single images with generative models, under the supervision of <a href="http://www.cs.bilkent.edu.tr/~adundar/" target="_blank">Prof. Aysegul Dundar</a>. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="margin-top: 22px;">
+      <header><h2 style="margin: 0;">📚 Publications</h2></header>
+      <ul id="pubs">
+<li class="pub" data-venue="arxiv">
+      <div class="thumb" data-video="./media/ropecraft.mp4" data-poster=""> <!-- To use a video thumbnail: set data-video="assets/vids/yourclip.mp4" (and optional data-poster). Leave empty to keep image. --> 
+        <img src="./media/ropecraft.png" alt="thumbnail for RoPECraft - Training-Free Motion Transfer with Trajectory-Guided Optimization on Diffusion Transformers">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">NeurIPS 2025</span>
+
+          <span class="pub-title">RoPECraft: Training-free Motion Transfer with Trajectory Guided Optimization on DiTs</span>
+        </div>
+        <div class="pub-authors">Ahmet Berke Gokmen*,  Yigit Ekin*,  <span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span></span>*,  Aysegul Dundar (* joint 1st)</div>
+        <!-- <div class="pub-venue">arXiv, 2025.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2505.13344" target="_blank">Paper</a> <a href="https://berkegokmen1.github.io/RoPECraft" target="_blank">Project</a> <a href="https://github.com/berkegokmen1/RoPECraft" target="_blank">Code</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="iccv">
+      <div class="thumb">
+        <img src="./media/head_stylization.png" alt="thumbnail for Identity Preserving 3D Head Stylization with Multiview Score Distillation">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">ICCV 2025</span>
+
+          <span class="pub-title">Identity Preserving 3D Head Stylization with Multiview Score Distillation</span>
+        </div>
+        <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Ahmet Berke Gokmen, Furkan Guzelant, Aysegul Dundar</div>
+        <!-- <div class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV), 2025.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2411.13536" target="_blank">Paper</a> <a href="https://three-bee.github.io/head_stylization" target="_blank">Project</a> <a href="https://github.com/three-bee/3d_head_stylization" target="_blank">Code</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="cvpr">
+      <div class="thumb">
+        <img src="./media/triplaneEditing.png" alt="thumbnail for Reference-Based 3D-Aware Image Editing with Triplane">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">CVPR 2025</span>
+          <span class="flags"><span class="flag spotlight">Spotlight</span></span>
+          <span class="pub-title">Reference-based 3D-aware Image Editing with Triplanes</span>
+        </div>
+        <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Yigit Yalin, Ning Yu, Aysegul Dundar</div>
+        <!-- <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025.</div> -->
+        <div class="pub-links"><a href="https://three-bee.github.io/triplane_edit" target="_blank">Project</a> <a href="https://github.com/three-bee/triplane_edit" target="_blank">Code</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="neurips">
+      <div class="thumb">
+        <img src="./media/dual_encoder.png" alt="thumbnail for Dual Encoder GAN Inversion for High-Fidelity 3D Head Reconstruction from Single Images">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">NeurIPS 2024</span>
+
+          <span class="pub-title">Dual Encoder GAN Inversion for High-fidelity 3D Head Reconstruction from Single Images</span>
+        </div>
+        <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span></span>*,  Ahmet Berke Gokmen*,  Aysegul Dundar (* joint 1st)</div>
+        <!-- <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS), 2024.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2409.20530" target="_blank">Paper</a> <a href="https://berkegokmen1.github.io/dual-enc-3d-gan-inv/" target="_blank">Project</a> <a href="https://github.com/berkegokmen1/dual-enc-3d-gan-inversion" target="_blank">Code</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="arxiv">
+      <div class="thumb">
+        <img src="./media/BCDM_disc.png" alt="thumbnail for Bayesian Conditioned Diffusion Models for Inverse Problems">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">arXiv 2024</span>
+
+          <span class="pub-title">Bayesian Conditioned Diffusion Models for Inverse Problems</span>
+        </div>
+        <div class="pub-authors">Alper Gungor, <span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Tolga Cukur</div>
+        <!-- <div class="pub-venue">arXiv, 2024.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2406.09768" target="_blank">Paper</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="iccv">
+      <div class="thumb">
+        <img src="./media/inversion-inpainting.jpg" alt="thumbnail for Diverse Inpainting and Editing with GAN Inversion">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">ICCV 2023</span>
+
+          <span class="pub-title">DivInversion: Diverse Inpainting and Editing with GAN Inversion</span>
+        </div>
+        <div class="pub-authors">Ahmet Burak Yildirim, Hamza Pehlivan, <span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Aysegul Dundar</div>
+        <!-- <div class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV), 2023.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2307.15033" target="_blank">Paper</a> <a href="http://divinversion.abyildirim.com" target="_blank">Project</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="bmvc">
+      <div class="thumb">
+        <img src="./media/repr_image_SR.png" alt="thumbnail for Towards Clip-Free Quantized Super-Resolution Networks: How to Tame Representative Images">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">BMVC 2023</span>
+
+          <span class="pub-title">Towards Clip-free Quantized Super-resolution Networks: How to Tame Representative Images</span>
+        </div>
+        <div class="pub-authors">Alperen Kalay, <span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Mustafa Ayazoglu</div>
+        <!-- <div class="pub-venue">British Machine Vision Conference (BMVC), 2023.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2308.11365" target="_blank">Paper</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="cvpr">
+      <div class="thumb">
+        <img src="./media/bicubicplusplus.png" alt="thumbnail for Bicubic++ - Designing an Industry-Grade Super-Resolution Network">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">CVPR 2023</span> <span class="flag workshop">Workshop</span>
+          <span class="flags"><span class="flag challenge_winner">Challenge winner</span></span>
+          <span class="pub-title">Bicubic++: Designing an Industry-Grade Super-Resolution Network</span>
+        </div>
+        <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span></span> and Mustafa Ayazoglu</div>
+        <!-- <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), NTIRE Workshop, 2023.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2305.02126" target="_blank">Paper</a> <a href="https://github.com/aselsan-research-imaging-team/bicubic-plusplus" target="_blank">Code</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="eccv">
+      <div class="thumb">
+        <img src="./media/xcat.png" alt="thumbnail for XCAT - Lightweight Quantized Single Image Super-Resolution using Heterogeneous Group Convolutions and Cross Concatenation">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">ECCV 2022</span> <span class="flag workshop">Workshop</span>
+
+          <span class="pub-title">XCAT: Lightweight Quantized Single Image Super-Resolution using Heterogeneous Group Convolutions and Cross Concatenation</span>
+        </div>
+        <div class="pub-authors">Mustafa Ayazoglu and <span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span></span></div>
+        <!-- <div class="pub-venue">European Conference on Computer Vision (ECCV), Advances in Image Manipulation (AIM) Workshop, 2022.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2208.14655" target="_blank">Paper</a></div>
+      </div>
+    </li>
+<li class="pub" data-venue="cvpr">
+      <div class="thumb">
+        <img src="./media/alignment.png" alt="thumbnail for Efficient Multi-Purpose Cross Attention-Based Image Alignment Block for Edge Devices">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge">CVPR 2022</span> <span class="flag workshop">Workshop</span>
+
+          <span class="pub-title">Efficient Multi-purpose Cross Attention-Based Image Alignment Block for Edge Devices</span>
+        </div>
+        <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Alparslan Fisne, Mustafa Ayazoglu</div>
+        <!-- <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), Embedded Vision Workshop, 2022.</div> -->
+        <div class="pub-links"><a href="https://arxiv.org/abs/2206.00291" target="_blank">Paper</a> </div>
+      </div>
+    </li>
+</ul>
+    </section>
+
+    <section class="section" style="margin-top: 22px;">
+      <header><h2 style="margin: 0;">🏫 Teaching</h2></header>
+      <ul class="list">
+        <li>Teaching Assistant, ETH Zürich, 252-0206-00L Visual Computing, 2025</li>
+        <li>Grader, Bilkent University, CS 464 Introduction to Machine Learning, 2024</li>
+        <li>Grader, Bilkent University, CS 281 Computers and Data Organization, 2023</li>
+      </ul>
+    </section>
+
+    <footer>
+      <span>© <span id="yearNow"></span> Bahri Batuhan Bilecen</span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('yearNow').textContent = new Date().getFullYear();
+  
+  // Turn any .thumb[data-video] into an autoplaying, muted, looping video (with optional poster)
+  document.querySelectorAll('.thumb[data-video]').forEach(el => {
+    const src = el.getAttribute('data-video');
+    if (!src) return;
+    const poster = el.getAttribute('data-poster');
+    const v = document.createElement('video');
+    v.src = src;
+    v.muted = true;
+    v.autoplay = true;
+    v.loop = true;
+    v.playsInline = true;
+    if (poster) v.setAttribute('poster', poster);
+    el.innerHTML = '';
+    el.appendChild(v);
+  });
+
+  </script>
+</body>
+</html>
