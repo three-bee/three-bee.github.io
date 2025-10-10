@@ -23,6 +23,7 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <section class="hero">
@@ -282,7 +283,7 @@
 .video-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr); /* 6 equal-width columns */
-  gap: 10px; /* Space between videos */
+  gap: 0px; /* Space between videos */
   justify-items: center; /* Center each item horizontally in the grid */
   align-items: center; /* Align items to start of the container */
 }
@@ -296,7 +297,7 @@
 
 .video-title {
   font-size: 1rem;
-  margin-bottom: 10px; /* Adds space between the text and video */
+  margin-bottom: 0px; /* Adds space between the text and video */
   color: #333; /* Adjust text color if needed */
   text-align: center; /* Center align the title text */
 }
@@ -313,7 +314,7 @@ video {
 .video-grid-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 20px; /* Space between rows */
+  margin-bottom: 0px; /* Space between rows */
 }
 
 .vertical-text {
@@ -325,6 +326,14 @@ video {
   color: #333; /* Adjust text color as needed */
 }
 
+#method-section .container.is-max-desktop {
+  max-width: 1200px; /* Broaden the method section to highlight the schematic */
+}
+
+#method-section img {
+  width: 100%;
+  height: auto;
+}
 
   </style>
 
@@ -332,12 +341,111 @@ video {
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
+          <h2 class="title is-3">Motivation</h2>
 
 
           <div class="content has-text-justified">
             <p>
-3D head stylization transforms realistic facial features into artistic representations, enhancing user engagement across applications such as gaming and virtual reality. While 3D-aware generators have made significant advancements, many 3D stylization methods primarily provide near-frontal views and struggle to preserve the unique identities of original subjects, often resulting in outputs that lack diversity and individuality. This paper addresses these challenges by leveraging the PanoHead model, which synthesizes images from a comprehensive 360-degree perspective. We propose a novel framework that employs negative log-likelihood distillation (LD) to enhance identity preservation and improve stylization quality. By integrating multi-view grid score and mirror gradients within the 3D GAN architecture and introducing a score rank weighing technique, our approach achieves substantial qualitative and quantitative improvements. Our findings not only advance the state of 3D head stylization but also provide valuable insights into effective distillation processes between diffusion models and GANs, focusing on the critical issue of identity preservation.
+Domain adaptation in GANs is particularly challenging because it requires maintaining the integrity of the latent space while transferring visual style. In this context, we address the problem of identity preservation for 3D human heads during stylization, using diffusion distillation. We find that standard score distillation sampling (SDS) fails in this setting, as its inherently mode-seeking behavior leads to mode collapse and unstable adaptation. Prior methods attempt to counteract this with additional loss terms, but we show that the problem lies in the nature of the SDS signal itself. To overcome this, we introduce Likelihood Distillation (LD) for GANs, which provides both high-variance stylization signal and stable training. In addition, we propose several complementary techniques, such as mirror gradients, grid denoising, and score rank reweighing that further stabilize and enhance domain adaptation. Through qualitative and quantitative evaluations, we demonstrate that our approach significantly outperforms previous 3D GAN stylization methods, implicit 3D stylization techniques, and 2D diffusion-based face editing baselines.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <p>
+              The aim is to finetune the PanoHead generator \(\mathbf{G}\) for diverse latent samples \(z\) while the conditional denoiser \(\mathbf{SD}\) injects the target style. Our pipeline integrates mirror gradients (Fig. a) and multi-view grid distillation (Fig. b), and in both stages we apply SVD-based rank re-weighing of the diffusion scores.
+            </p>
+            <figure class="image">
+              <img src="./static/images/schematic.png" alt="Overview of the proposed head stylization pipeline">
+            </figure>
+            <p>
+              We adapt PanoHead by matching differentiable renders \(x_t^\pi\) to a diffusion model guided by prompt \(y\). The likelihood distillation objective couples diffusion scores with the generator parameters \(\theta\):
+            </p>
+            <p>
+              \[
+              \nabla_\theta \mathcal{L}_{\text{LD}}
+              = - \mathbb{E}_{\pi, x_t}
+              \Big[
+                \nabla_{x_t} \log p(x_t^\pi \mid y)
+                \frac{\partial x_t^\pi}{\partial x_0^\pi}
+                \frac{\partial x_0^\pi}{\partial \theta}
+              \Big].
+              \]
+            </p>
+            <p>
+              To promote view consistency we leverage head symmetries. For mirrored yaw pairs \((\pi,\pi')\) we inject mirror gradients using the flip operator \(\mathbf{M}\) and DDPM scaling \(\sqrt{\bar{\alpha}_t}\):
+            </p>
+            <p>
+              \[
+              \nabla_\theta \mathcal{L}_{\text{LD}}
+              = - \mathbb{E}_{\pi, x_t}
+              \Big[
+                \nabla_{x_t} \log p(x_t^\pi \mid y) \sqrt{\bar{\alpha}_t}
+                \Big(
+                  \frac{\partial x_0^\pi}{\partial \theta}
+                  + \mathbf{M}\frac{\partial x_0^{\pi'}}{\partial \theta}
+                \Big)
+              \Big].
+              \]
+            </p>
+            <p>
+              Mirror gradients only correlate symmetric pairs, so we add grid denoising by rendering a \(2 \times 2\) pose grid and backpropagating joint scores:
+            </p>
+            <p>
+              \[
+              \nabla_\theta \mathcal{L}_{\text{LD}_g}
+              = - \mathbb{E}_{\pi, \{x_t\}}
+              \Big[
+                \nabla_{\{x_t^{\pi}\}} \log p(\{x_t^{\pi}\} \mid y)
+                \frac{\partial \{x_t^{\pi}\}}{\partial \{x_0^{\pi}\}}
+                \frac{\partial \{x_0^{\pi}\}}{\partial \theta}
+              \Big].
+              \]
+            </p>
+            <p>
+              We approximate the full pose set with four renders, supervise them with a depth-conditioned ControlNet, and apply gradients before the super-resolution layers to prevent resolution mismatch while correlating views.
+            </p>
+            <p>
+              Finally, we reweigh stylization cues by applying a rank-weighted singular value decomposition to the score tensor with coefficients \(\mathbf{W} = \mathrm{diag}(1, 0.75, 0.5, 0.25)\):
+            </p>
+            <p>
+              \[
+              \mathbf{U}\mathbf{\Sigma}\mathbf{V}^{\mathsf{T}} = \mathrm{SVD}\big(\nabla_\theta \log p(x_0^\pi \mid y)\big), \quad
+              \nabla_\theta \log \tilde{p}(x_0^\pi \mid y) = \mathbf{U}\mathbf{W}\mathbf{\Sigma}\mathbf{V}^{\mathsf{T}}.
+              \]
+            </p>
+            <p>
+              Down-weighting the lower singular modes suppresses color and saturation drift while keeping the dominant rank aligned with identity cues, yielding balanced stylization across poses.
+            </p>
+            <h3 class="title is-4 has-text-left">Why LD over SDS</h3>
+            <p>
+              Score Distillation Sampling (SDS) optimizes a reverse KL objective by regressing the diffusion noise residual, which makes the gradients mode-seeking and prone to collapsing different latent samples to similar stylizations. Likelihood distillation (LD) instead optimizes the negative log-likelihood of renders and provides diversity-seeking gradients that better preserve the GAN prior.
+            </p>
+            <p>
+              \[
+              \nabla_\theta L_{\text{SDS}} = \mathbb{E}_{t, \epsilon}\Big[\omega(t)\big(\hat{\epsilon}(x_t; y, t) - \epsilon\big)\frac{\partial x}{\partial \theta}\Big]
+              \]
+            </p>
+            <p>
+              \[
+              \nabla_\theta \mathcal{L}_{\text{LD}}
+              = - \mathbb{E}_{\pi, x_t}
+              \Big[
+                \nabla_{x_t} \log p(x_t^\pi \mid y)
+                \frac{\partial x_t^\pi}{\partial x_0^\pi}
+                \frac{\partial x_0^\pi}{\partial \theta}
+              \Big]
+              \]
+            </p>
+            <p>
+              As reported in the paper, LD avoids the over-smoothing and saturation artifacts observed with SDS, requires lower classifier-free guidance, and yields sharper, identity-preserving edits across prompts. Divergence is not a problem as opposed to SDS because we heavily leverage a strong GAN prior.
             </p>
           </div>
         </div>
@@ -454,7 +562,7 @@ video {
 
 <div class="video-grid-wrapper">
         <div class="vertical-text">
-          <p>StyleGAN-NADA</p>
+          <p>SG-NADA</p>
         </div>
       <div class="video-grid">
         <div class="video-wrapper">
@@ -498,7 +606,7 @@ video {
 
 <div class="video-grid-wrapper">
         <div class="vertical-text">
-          <p>StyleGAN-Fusion</p>
+          <p>SG-Fusion</p>
         </div>
       <div class="video-grid">
         <div class="video-wrapper">
@@ -542,7 +650,7 @@ video {
       
 <div class="video-grid-wrapper">
         <div class="vertical-text">
-          <p>DiffusionGAN3D</p>
+          <p>DiffGAN3D</p>
         </div>
       <div class="video-grid">
         <div class="video-wrapper">
@@ -582,7 +690,7 @@ video {
         </div>
       </div>
       </div>
-      
+<!--       
       
           <p class="centered-text">
           You may refresh the page to synchronize all visible videos.
@@ -814,7 +922,7 @@ video {
         </div>
       </div>
       </div>
-
+ -->
 
 
 
@@ -844,7 +952,7 @@ video {
               </p>
               <br />
 
-                          <div class="container">
+                          <!-- <div class="container">
               <img src="./static/images/pixar_2_final.jpg"/>
               <p class="centered-text">
 <b>Pixar</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
@@ -870,7 +978,11 @@ video {
               <p class="centered-text">
 <b>Zombie</b> edits. From top to bottom: input, StyleCLIP, StyleGAN-NADA, StyleGANFusion, DiffusionGAN3D, <b>ours</b>.
               </p>
-              <br />
+              <br /> -->
+
+          <p class="centered-text">
+          More results are available in the paper and supplementary materials.
+          </p>
               
             </div>
           </div>
