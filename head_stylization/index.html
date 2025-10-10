@@ -426,7 +426,7 @@ Domain adaptation in GANs is particularly challenging because it requires mainta
             </p>
             <h3 class="title is-4 has-text-left">Why LD over SDS</h3>
             <p>
-              Score Distillation Sampling (SDS) optimizes a reverse KL objective by regressing the diffusion noise residual, which makes the gradients mode-seeking and prone to collapsing different latent samples to similar stylizations. Likelihood distillation (LD) instead optimizes the negative log-likelihood of renders and provides diversity-seeking gradients that better preserve the GAN prior.
+              Score Distillation Sampling (SDS) optimizes a reverse KL objective by regressing the diffusion noise residual (i.e., subtracting Ɛ), which makes the gradients mode-seeking and prone to collapsing different latent samples to similar stylizations. Likelihood distillation (LD) instead optimizes the negative log-likelihood of renders and provides diversity-seeking gradients that better preserve the GAN prior.
             </p>
             <p>
               \[
