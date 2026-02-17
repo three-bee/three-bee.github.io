@@ -9,35 +9,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --bg: #0b0c10;
-      --card: #11131a;
-      --soft: #1a1d24;
-      --text: #e8e8ea;
-      --muted: #a8acb3;
-      --accent: #6ee7b7;
-      --link: #8ab4ff;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --bg: #ffffff;
+      --card: #ffffff;
+      --soft: #f3f4f6;
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #0ea5e9;
+      --link: #1d4ed8;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       --radius: 18px;
 
-      --c-neurips: #00206c;
-      --c-icml: #00206c;
-      --c-cvpr: #00206c;
-      --c-iccv: #00206c;
-      --c-eccv: #00206c;
-      --c-bmvc: #00206c;
-      --c-arxiv: #00206c;
-      --c-default: #00206c;
+      --c-neurips: #c7d2fe;
+      --c-icml: #bfdbfe;
+      --c-cvpr: #bae6fd;
+      --c-iccv: #a7f3d0;
+      --c-eccv: #fecdd3;
+      --c-bmvc: #f5d0fe;
+      --c-arxiv: #fef3c7;
+      --c-chi: #ddd6fe;
+      --c-kdd: #bbf7d0;
+      --c-default: #e5e7eb;
 
       --flag-oral: #e03636;
-      --flag-spotlight: #e03636;
-      --flag-challenge_winner: #e03636;
       --flag-workshop: #243955;
     }
     body {
       margin: 0;
       font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: radial-gradient(1200px 600px at 80% -10%, #14202e 0%, transparent 60%),
-                  radial-gradient(900px 500px at -10% 10%, #1d1527 0%, transparent 55%),
+      background: radial-gradient(1200px 600px at 80% -10%, #e7f1ff 0%, transparent 60%),
+                  radial-gradient(900px 500px at -10% 10%, #fff2e6 0%, transparent 55%),
                   var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -57,33 +57,98 @@
 
     .summary { margin-top: 14px; font-size: 15px; color: var(--muted); }
 
-    .section { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)), var(--card); border: 1px solid #1f2430; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .section { background: linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.00)), var(--card); border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
 
     #pubs { padding-left: 0; list-style: none; }
-    .pub { display: grid; grid-template-columns: 260px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid #1f2430; align-items: start; }
+    .pub { display: grid; grid-template-columns: 286px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #e5e7eb; align-items: start; }
     .pub:last-child { border-bottom: none; }
-    .thumb { width: 220px; height: 160px; border-radius: 12px; overflow: hidden; background: #0c0f15; border: 1px solid #232838; box-shadow: var(--shadow); }
-    .thumb video, .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pub.latest-pub {
+      position: relative;
+      margin-left: -12px;
+      margin-right: -12px;
+      padding-left: 12px;
+      padding-right: 12px;
+      background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px #7dd3fc, 0 8px 20px rgba(2, 132, 199, 0.12);
+    }
+    .pub.latest-pub::before {
+      content: "Latest";
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #0c4a6e;
+      background: #bae6fd;
+      border: 1px solid #38bdf8;
+      border-radius: 999px;
+      padding: 2px 9px;
+    }
+    .pub.special-pub {
+      position: relative;
+      margin-left: -12px;
+      margin-right: -12px;
+      padding-left: 12px;
+      padding-right: 12px;
+      background: linear-gradient(135deg, #fff1f2, #fce7f3);
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px #f9a8d4, 0 8px 20px rgba(190, 24, 93, 0.12);
+    }
+    .pub.special-pub[data-highlight="Spotlight"],
+    .pub.special-pub[data-highlight="Challange Winner"] {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      box-shadow: inset 0 0 0 1px #fdba74, 0 8px 20px rgba(234, 88, 12, 0.14);
+    }
+    .pub.special-pub::before {
+      content: attr(data-highlight);
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #9d174d;
+      background: #fbcfe8;
+      border: 1px solid #f472b6;
+      border-radius: 999px;
+      padding: 2px 9px;
+    }
+    .pub.special-pub[data-highlight="Spotlight"]::before,
+    .pub.special-pub[data-highlight="Challange Winner"]::before {
+      color: #9a3412;
+      background: #fed7aa;
+      border-color: #fb923c;
+    }
+    .thumb { width: 280px; height: 160px; border-radius: 12px; overflow: hidden; background: #f8fafc; border: 1px solid #e5e7eb; box-shadow: var(--shadow); }
+    .thumb video { width: 100%; height: 100%; object-fit: contain; background: #ffffff; display: block; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb-stack { display: flex; flex-direction: column; width: 100%; height: 100%; }
+    .thumb-stack video { height: 50%; object-fit: contain; background: #ffffff; }
+    .thumb-stack video.thumb-video-top-half {
+      object-fit: cover;
+      object-position: top center;
+    }
 
-    .pub-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .pub-title { font-weight: 700; }
+    .pub-header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .pub-title { font-weight: 700; flex-basis: 100%; margin-top: 2px; }
 
-    .badge { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; color: #0b0c10; background: var(--c-default); border: 1px solid rgba(255, 255, 255, 0.1); }
-    [data-venue*="chi"] .badge { background: var(--c-chi);  color: #ffffff; }
-    [data-venue*="neurips"] .badge { background: var(--c-neurips);  color: #ffffff; }
-    [data-venue*="icml"] .badge { background: var(--c-icml);  color: #ffffff; }
-    [data-venue*="cvpr"] .badge { background: var(--c-cvpr);  color: #ffffff; }
-    [data-venue*="iccv"] .badge { background: var(--c-iccv); color: #ffffff;}
-    [data-venue*="eccv"] .badge { background: var(--c-eccv); color: #ffffff;}
-    [data-venue*="bmvc"] .badge { background: var(--c-bmvc); color: #ffffff;}
-    [data-venue*="kdd"] .badge { background: var(--c-kdd);  color: #ffffff; }
-    [data-venue*="arxiv"] .badge { background: var(--c-arxiv);  color: #ffffff; }
+    .badge { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; }
+    [data-venue*="chi"] .badge,
+    [data-venue*="neurips"] .badge,
+    [data-venue*="icml"] .badge,
+    [data-venue*="cvpr"] .badge,
+    [data-venue*="iccv"] .badge,
+    [data-venue*="eccv"] .badge,
+    [data-venue*="bmvc"] .badge,
+    [data-venue*="kdd"] .badge,
+    [data-venue*="arxiv"] .badge { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+    .badge.badge-submission { background: #e5e7eb; color: #374151; border: 1px solid #d1d5db; }
 
     .flags { display: inline-flex; gap: 6px; align-items: center; }
-    .flag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); display: inline-block; }
+    .flag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(15, 23, 42, 0.15); display: inline-block; }
     .flag.oral { background: var(--flag-oral); color: #ffffff; }
-    .flag.spotlight { background: var(--flag-spotlight); color: #ffffff; }
-    .flag.challenge_winner { background: var(--flag-challenge_winner); color: #ffffff; }
     .flag.workshop { background: var(--flag-workshop); color: #ffffff; }
 
     .pub-authors { color: var(--muted); margin-top: 2px; }
@@ -99,7 +164,7 @@
       .pub { grid-template-columns: 1fr; }
       .thumb { width: 100%; height: 180px; }
     }
-  .pub-authors .me { color: #a5b4fc; font-weight: 600; } /* pastel indigo */
+  .pub-authors .me { color: #4f46e5; font-weight: 600; } /* indigo accent */
 </style>
 </head>
 <body>
@@ -115,7 +180,7 @@
             <a href="https://scholar.google.com/citations?user=4GUU0H4AAAAJ&hl=tr" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://github.com/three-bee" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/bbatuhan/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="./media/curriculum_vitae.pdf" target="_blank" title="CV"><i class="fas fa-file-pdf"></i></a>
+            <a href="./media/curriculum_vitae.pdf" target="_blank" title="CV"><i class="fa-solid fa-file"></i></a>
           </div>
           <div class="summary">
             <p>
@@ -123,13 +188,20 @@
               <a href="https://inf.ethz.ch/people/person-detail.MjYyNzgw.TGlzdC8zMDQsLTg3NDc3NjI0MQ==.html" target="_blank">Prof. Siyu Tang</a>, 
               <a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele" target="_blank">Prof. Bernt Schiele</a>, 
               and <a href="https://janericlenssen.github.io" target="_blank">Dr. Jan Eric Lenssen</a>, with <a href="https://learning-systems.org" target="_blank">CLS</a> fellowship.
-              <p>I focus on generative modeling, representation learning, and video-language-action models. I am in active collaboration with <a href="https://arvr.google.com" target="_blank">Google XR</a> to push novel video representations forward.</p>
+              <p>Now, I focus on generative modeling and representation learning from videos 📽️. Within my 1st year, I had the great chance of collaborating with <a href="https://arvr.google.com" target="_blank">Google XR</a> to push novel video representations forward, under the <a href="https://ethar.ethz.ch" target="_blank">ETHAR</a> project.</p>
             </p>
             <p>
-              I got my CS MSc at <a href="https://w3.bilkent.edu.tr/bilkent/" target="_blank">Bilkent University</a> in 2025, 
-              and EEE BSc at <a href="https://www.metu.edu.tr/" target="_blank">Middle East Technical University (METU)</a> in 2022. 
-              I also worked as a full-time research engineer at <a href="https://www.aselsan.com/en" target="_blank">Aselsan Inc.</a> in 2021-2025.
-              My MSc thesis focused on 3D reconstruction from single images with generative models, under the supervision of <a href="http://www.cs.bilkent.edu.tr/~adundar/" target="_blank">Prof. Aysegul Dundar</a>. 
+              I got my CS MSc at <a href="https://w3.bilkent.edu.tr/bilkent/" target="_blank">Bilkent University</a> in 2025 with high honors, 
+              and EEE BSc at <a href="https://www.metu.edu.tr/" target="_blank">Middle East Technical University (METU)</a> in 2022 with high honors. 
+              My MSc thesis focused on 3D reconstruction from single images with generative models, under the supervision of <a href="http://www.cs.bilkent.edu.tr/~adundar/" target="_blank">Prof. Aysegul Dundar</a>, which earned <a href="https://www.linkedin.com/posts/ieeetrcs_thesisawards-tezaemdaeslleri-computersocietyturkiyethesisawards-activity-7378760947798179840-zIdN" target="_blank">the best CS thesis award</a> of 2025 at IEEE CS Turkey branch 🚀
+            </p>
+            
+            <p>
+              I also worked as a full-time research engineer at <a href="https://www.aselsan.com/en" target="_blank">Aselsan Inc.</a> in 2021-2025, where I learned cool signal processing stuff.
+            </p>
+
+            <p>
+              Besides these I love cats 🐈 and playing the classical guitar
             </p>
           </div>
         </div>
@@ -139,6 +211,19 @@
     <section class="section" style="margin-top: 22px;">
       <header><h2 style="margin: 0;">📚 Publications</h2></header>
       <ul id="pubs">
+<li class="pub latest-pub" data-venue="submission">
+      <div class="thumb" data-video-top="https://three-bee.github.io/invact_website/data/phyworld_grids/ours_query_118.mp4" data-video-bottom="https://three-bee.github.io/invact_website/data/paper_vids/grid_2_trim.mp4" data-poster-top="" data-poster-bottom="" data-bottom-view="top-half">
+        <img src="https://three-bee.github.io/invact_website/data/arch_27_v2.svg" alt="thumbnail for InvAct: View and Scene-invariant Atomic Action Learning from Videos" style="object-fit: contain; background: #ffffff;">
+      </div>
+      <div>
+        <div class="pub-header">
+          <span class="badge badge-submission">In submission</span>
+          <span class="pub-title">InvAct: View and Scene-invariant Atomic Action Learning from Videos</span>
+        </div>
+        <div class="pub-authors"><span class="me">Bahri Batuhan Bilecen,</span> Korrawe Karunratanakul, Vasileios Choutas, Thabo Beeler, Bernt Schiele, Jan Eric Lenssen, Siyu Tang</div>
+        <div class="pub-links"><a href="https://three-bee.github.io/invact_website/preprint.pdf" target="_blank">Paper</a> <a href="https://three-bee.github.io/invact_website/" target="_blank">Project</a></div>
+      </div>
+    </li>
 <li class="pub" data-venue="neurips">
       <div class="thumb" data-video="./media/ropecraft.mp4" data-poster=""> <!-- To use a video thumbnail: set data-video="assets/vids/yourclip.mp4" (and optional data-poster). Leave empty to keep image. --> 
         <img src="./media/ropecraft.png" alt="thumbnail for RoPECraft - Training-Free Motion Transfer with Trajectory-Guided Optimization on Diffusion Transformers">
@@ -169,14 +254,14 @@
         <div class="pub-links"><a href="https://arxiv.org/abs/2411.13536" target="_blank">Paper</a> <a href="https://three-bee.github.io/head_stylization" target="_blank">Project</a> <a href="https://github.com/three-bee/3d_head_stylization" target="_blank">Code</a></div>
       </div>
     </li>
-<li class="pub" data-venue="cvpr">
+<li class="pub special-pub" data-venue="cvpr" data-highlight="Spotlight">
       <div class="thumb" data-video="./media/cvpr25.mp4" data-poster="">
         <img src="./media/triplaneEditing.png" alt="thumbnail for Reference-Based 3D-Aware Image Editing with Triplane">
       </div>
       <div>
         <div class="pub-header">
           <span class="badge">CVPR 2025</span>
-          <span class="flags"><span class="flag spotlight">Spotlight</span></span>
+
           <span class="pub-title">Reference-based 3D-aware Image Editing with Triplanes</span>
         </div>
         <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span>,</span>  Yigit Yalin, Ning Yu, Aysegul Dundar</div>
@@ -205,7 +290,7 @@
       </div>
       <div>
         <div class="pub-header">
-          <span class="badge">arXiv 2024</span>
+          <span class="badge badge-submission">In submission</span>
 
           <span class="pub-title">Bayesian Conditioned Diffusion Models for Inverse Problems</span>
         </div>
@@ -244,14 +329,13 @@
         <div class="pub-links"><a href="https://arxiv.org/abs/2308.11365" target="_blank">Paper</a></div>
       </div>
     </li>
-<li class="pub" data-venue="cvpr">
+<li class="pub special-pub" data-venue="cvpr" data-highlight="Challange Winner">
       <div class="thumb">
         <img src="./media/bicubicplusplus.png" alt="thumbnail for Bicubic++ - Designing an Industry-Grade Super-Resolution Network">
       </div>
       <div>
         <div class="pub-header">
           <span class="badge">CVPR 2023</span> <span class="flag workshop">Workshop</span>
-          <span class="flags"><span class="flag challenge_winner">Challenge winner</span></span>
           <span class="pub-title">Bicubic++: Designing an Industry-Grade Super-Resolution Network</span>
         </div>
         <div class="pub-authors"><span class="me">Bahri <span class="me">Batuhan</span> <span class="me">Bilecen</span></span> and Mustafa Ayazoglu</div>
@@ -295,6 +379,7 @@
     <section class="section" style="margin-top: 22px;">
       <header><h2 style="margin: 0;">🏫 Teaching</h2></header>
       <ul class="list">
+        <li>Teaching Assistant, ETH Zürich, 263-5806-00L Digital Humans, 2026</li>
         <li>Teaching Assistant, ETH Zürich, 252-0206-00L Visual Computing, 2025</li>
         <li>Grader, Bilkent University, CS 464 Introduction to Machine Learning, 2024</li>
         <li>Grader, Bilkent University, CS 281 Computers and Data Organization, 2023</li>
@@ -308,21 +393,48 @@
 
   <script>
     document.getElementById('yearNow').textContent = new Date().getFullYear();
-  
-  // Turn any .thumb[data-video] into an autoplaying, muted, looping video (with optional poster)
-  document.querySelectorAll('.thumb[data-video]').forEach(el => {
-    const src = el.getAttribute('data-video');
-    if (!src) return;
-    const poster = el.getAttribute('data-poster');
+
+  function makeThumbVideo(src, poster) {
     const v = document.createElement('video');
     v.src = src;
     v.muted = true;
+    v.defaultMuted = true;
     v.autoplay = true;
     v.loop = true;
     v.playsInline = true;
     if (poster) v.setAttribute('poster', poster);
+    return v;
+  }
+
+  // Turn any .thumb[data-video-top][data-video-bottom] into two stacked autoplay videos.
+  document.querySelectorAll('.thumb[data-video-top][data-video-bottom]').forEach(el => {
+    const topSrc = el.getAttribute('data-video-top');
+    const bottomSrc = el.getAttribute('data-video-bottom');
+    if (!topSrc || !bottomSrc) return;
+
+    const topPoster = el.getAttribute('data-poster-top');
+    const bottomPoster = el.getAttribute('data-poster-bottom');
+    const bottomView = el.getAttribute('data-bottom-view');
+    const topVideo = makeThumbVideo(topSrc, topPoster);
+    const bottomVideo = makeThumbVideo(bottomSrc, bottomPoster);
+    if (bottomView === 'top-half') bottomVideo.classList.add('thumb-video-top-half');
+
+    const stack = document.createElement('div');
+    stack.className = 'thumb-stack';
+    stack.appendChild(topVideo);
+    stack.appendChild(bottomVideo);
     el.innerHTML = '';
-    el.appendChild(v);
+    el.appendChild(stack);
+  });
+
+  // Turn any .thumb[data-video] into an autoplaying, muted, looping video (with optional poster).
+  document.querySelectorAll('.thumb[data-video]').forEach(el => {
+    if (el.hasAttribute('data-video-top') && el.hasAttribute('data-video-bottom')) return;
+    const src = el.getAttribute('data-video');
+    if (!src) return;
+    const poster = el.getAttribute('data-poster');
+    el.innerHTML = '';
+    el.appendChild(makeThumbVideo(src, poster));
   });
 
   </script>
